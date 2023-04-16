@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ContactForm from "./components/ContactForm";
+import Parent from "./components/Parent";
+import ShowContact from "./components/ShowContact";
+import EditContact from "./components/EditContact";
 
-function App() {
+const App = () => {
+  const [income, setIncome] = useState(300);
+  const onCall = () => {
+    console.log("Printed From App.js");
+    // income = income + 300;
+    setIncome(600);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        {/* <Parent income={income} onPress={onCall} /> */}
+        <ContactForm />
+        <ShowContact />
+      </div>
+    </>
   );
-}
+};
 
 export default App;
